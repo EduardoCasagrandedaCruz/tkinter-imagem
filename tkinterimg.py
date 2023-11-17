@@ -1,17 +1,26 @@
 from tkinter import *
 
 from PIL import ImageTk, Image
+import os
 
 root = Tk()
 
+arquivos = os.listdir('imagens')
+imagens = []
+
+for arquivo in arquivos:
+    img= Image.open('imagens/' + arquivo)
+    imagens.append(ImageTk.PhotoImage(img))
+
+#arquivos_label = Label(root, text=arquivos)
+#arquivos_label.pack()
 
 
 
-img = Image.open('imagem.jpg')
-img_tk = ImageTk.PhotoImage(img)
 
 
-imglabel = Label(root, image=img_tk)
+
+imglabel = Label(root, image=imagens[2])
 
 
 imglabel.pack()
